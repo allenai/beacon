@@ -1,0 +1,7 @@
+.env
+.idea/
+/finetuning/cache/
+/plots2.xlsx
+/plots.xlsx
+/evaluation/.nfs*
+/__pycache__

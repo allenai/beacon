@@ -1,0 +1,49 @@
+T017,Anatomical Structure
+T018,Embryonic Structure
+T019,Congenital Abnormality
+T020,Acquired Abnormality
+T021,Fully Formed Anatomical Structure
+T024,Tissue
+T025,Cell
+T026,Cell Component
+T028,Gene or Genome
+T032,Organism Attribute
+T034,Laboratory or Test Result
+T037,Injury or Poisoning
+T038,Biologic Function
+T039,Physiologic Function
+T040,Organism Function
+T041,Mental Process
+T045,Genetic Function
+T046,Pathologic Function
+T047,Disease or Syndrome
+T048,Mental or Behavioral Dysfunction
+T059,Laboratory Procedure
+T060,Diagnostic Procedure
+T061,Therapeutic or Preventive Procedure
+T063,Molecular Biology Research Technique
+T064,Governmental or Regulatory Activity
+T082,Spatial Concept
+T083,Geographic Area
+T085,Molecular Sequence
+T086,Nucleotide Sequence
+T087,Amino Acid Sequence
+T088,Carbohydrate Sequence
+T089,Regulation or Law
+T095,Self-help or Relief Organization
+T097,Professional or Occupational Group
+T101,Patient or Disabled Group
+T121,Pharmacologic Substance
+T122,Biomedical or Dental Material
+T123,Biologically Active Substance
+T125,Hormone
+T126,Enzyme
+T127,Vitamin
+T129,Immunologic Factor
+T131,Hazardous or Poisonous Substance
+T169,Functional Concept
+T170,Intellectual Product
+T191,Neoplastic Process
+T192,Receptor
+T203,Drug Delivery Device
+T204,Eukaryote

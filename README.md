@@ -30,6 +30,7 @@ To run Definition Augmentation, please make sure you generte subsampled data usi
 
 ## Inference with open-sourced and closed-sourced models
 
+
 To run inference:
 
 `PYTHONPATH=./ python ${TYPE}/${MODEL}/${DATASET}.py` 
@@ -38,6 +39,12 @@ The following are different inference settings :
 TYPE  : zeroshot, fewshot, zeroshot_def_aug, fewshot_def_aug
 MODEL : openai, llama, claude
 DATATSET = cdr, chemprot, ncbi, medm, pico, chia
+
+### Fewshot 
+
+To create the shots run
+
+`fewshot/shot_selection` for each dataset and save these samples in DATA_DIR. Use this to run the `fewshot_def_aug`.
 
 ## Evaluation
 To process the evaluation scrips, there are two different formats (JSON/CODE) which can be done using the following command:
@@ -68,7 +75,7 @@ amiodarone      NN O B-CHE
 ### Running the model 
 To finetune a Flan-XL model, run the following command 
 
-`python peft_llm_trainer.py --model_name_or_path google/flan-t5-xl --output_dir <OUTDIR/> --train_file <TRAIN_PATH/> --validation_file <VAL_PATH> --test_file <TEST_PATH/> --do_train --do_eval --do_predict --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --learning_rate 3e-5 --num_train_epoch 5 --save_steps 10 --logging_steps 10 --load_best_model_at_end --predict_with_generate --eval_steps 10 --evaluation_strategy steps`
+```python peft_llm_trainer.py --model_name_or_path google/flan-t5-xl --output_dir <OUTDIR/> --train_file <TRAIN_PATH/> --validation_file <VAL_PATH> --test_file <TEST_PATH/> --do_train --do_eval --do_predict --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --learning_rate 3e-5 --num_train_epoch 5 --save_steps 10 --logging_steps 10 --load_best_model_at_end --predict_with_generate --eval_steps 10 --evaluation_strategy steps```
 
 where TRAIN_PATH, VAL_PATH and TEST_PATH are where the CONLL format files are saved.
 

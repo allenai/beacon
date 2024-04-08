@@ -1,0 +1,28 @@
+#NER Hyperparameter Sweep for BioBERT-large or NER Hyperparameter Sweep for PubMedBERT 
+#Only the model is different 
+# from https://github.com/dki-lab/few-shot-bioIE/blob/6cb38bd6d1beb41badc8f08622ff87f94354b1bf/configs/plms/2/config.yaml
+
+parameters:
+  data:
+    values: ['./fewshot-domadapt-datasets/finetune/ncbi/full/']
+  output_dir:
+    values: ['./fewshot-models/bert_based/outputs']
+  batch_size:
+    values: [16, 32]
+  learning_rate:
+    values: [1e-5,2e-5,3e-5,5e-5]
+  num_train_epochs:
+    values: [5] # stop at 5, 15,and 25 and dump
+  epoch_eval_period:
+    values: [5, 10, 25]
+  model_name_or_path:
+    values: ['dmis-lab/biobert-large-cased-v1.1']
+  model_name_or_path:
+    values: ['microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract'] 
+  eval_params:
+    values: [['batch_size',
+             'learning_rate',
+             'epoch']]
+
+
+
