@@ -1,5 +1,5 @@
 # On-the-fly Definition Augmentation of LLMs for Biomedical NER
-This repository contains code to run the inference and evaluation of NER as described in our NAACL 2024 paper: [On-the-fly Definition Augmentation of LLMs for Biomedical NER]](https://arxiv.org/abs/2404.00152)
+This repository contains code to run the inference and evaluation of NER as described in our NAACL 2024 paper: [On-the-fly Definition Augmentation of LLMs for Biomedical NER](https://arxiv.org/abs/2404.00152)
 
 ## Code Setup
 This code was developed in python 3.9 using the libraries listed in environment.yml. The easiest way to run this code is to set up a conda environment using the .yml file via the following command:
@@ -8,7 +8,7 @@ This code was developed in python 3.9 using the libraries listed in environment.
 
 Activate the conda environment using the command: ```conda activate fsdar```
 
-In addition to environment setup, you will need to dowbnload datasets from huggingface (open source) ([download here](https://huggingface.co/bigbio). 
+In addition to environment setup, you will need to dowbnload datasets from huggingface (open source) [download here](https://huggingface.co/bigbio). 
 
 
 ## Datasets and Splits
@@ -24,7 +24,7 @@ Our paper evaluates the performance of these models on NER inference on the foll
 
 These datasets are curated by [Fries et al.](https://arxiv.org/abs/2206.15076). Note that `data` directory contains the `document id` for the subsampled test split for each dataset. Please run the script to save the subsampled datasets before running `retrieval` and `fewshot_retrieval`. 
 
-Additionally for `CHIA` dataset, we create train, validation and test splits with the most recent ones in the test set. We also release the '`document ids` for each of these splits in `data/chia`. 
+Additionally for `CHIA` dataset, we create train, validation and test splits with the most recent ones in the test set. We also release the `document ids` for each of these splits in `data/chia`. 
 
 To run Definition Augmentation, please make sure you generte subsampled data using the Article IDs from `data` and then change the paths.
 
@@ -33,12 +33,15 @@ To run Definition Augmentation, please make sure you generte subsampled data usi
 
 To run inference:
 
-`PYTHONPATH=./ python ${TYPE}/${MODEL}/${DATASET}.py` 
+```shell
+make run TYPE=$TYPE MODEL=$MODEL DATASET=$DATASET
+```
 
-The following are different inference settings : 
-TYPE  : zeroshot, fewshot, zeroshot_def_aug, fewshot_def_aug
-MODEL : openai, llama, claude
-DATATSET = cdr, chemprot, ncbi, medm, pico, chia
+The following are different inference settings: 
+
+TYPE: zeroshot, fewshot, zeroshot_def_aug, fewshot_def_aug
+MODEL: openai, llama, claude
+DATATSET: cdr, chemprot, ncbi, medm, pico, chia
 
 ### Fewshot 
 
@@ -49,11 +52,15 @@ To create the shots run
 ## Evaluation
 To process the evaluation scrips, there are two different formats (JSON/CODE) which can be done using the following command:
 
+```shell
+make run OUTPUT_TYPE=$OUTPUT_TYPE DATASET=$DATASET
 ```
-python evaluation/<eval_code/eval_json>/<dataset_name>.py 
 
+The following are different evaluation settings: 
 
-```
+OUTPUT_TYPE: eval_code, eval_json
+DATATSET: cdr, chemprot, ncbi, medm, pico, chia
+
 ## Finetuned Model
 
 ### Data Formatting 
@@ -75,7 +82,9 @@ amiodarone      NN O B-CHE
 ### Running the model 
 To finetune a Flan-XL model, run the following command 
 
-```python peft_llm_trainer.py --model_name_or_path google/flan-t5-xl --output_dir <OUTDIR/> --train_file <TRAIN_PATH/> --validation_file <VAL_PATH> --test_file <TEST_PATH/> --do_train --do_eval --do_predict --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --learning_rate 3e-5 --num_train_epoch 5 --save_steps 10 --logging_steps 10 --load_best_model_at_end --predict_with_generate --eval_steps 10 --evaluation_strategy steps```
+```shell
+python peft_llm_trainer.py --model_name_or_path google/flan-t5-xl --output_dir <OUTDIR/> --train_file <TRAIN_PATH/> --validation_file <VAL_PATH> --test_file <TEST_PATH/> --do_train --do_eval --do_predict --per_device_train_batch_size 1 --per_device_eval_batch_size 1 --learning_rate 3e-5 --num_train_epoch 5 --save_steps 10 --logging_steps 10 --load_best_model_at_end --predict_with_generate --eval_steps 10 --evaluation_strategy steps
+```
 
 where TRAIN_PATH, VAL_PATH and TEST_PATH are where the CONLL format files are saved.
 
