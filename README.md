@@ -40,7 +40,9 @@ make run TYPE=$TYPE MODEL=$MODEL DATASET=$DATASET
 The following are different inference settings: 
 
 TYPE: zeroshot, fewshot, zeroshot_def_aug, fewshot_def_aug
+<br>
 MODEL: openai, llama, claude
+<br>
 DATATSET: cdr, chemprot, ncbi, medm, pico, chia
 
 ### Fewshot 
@@ -59,6 +61,7 @@ make run OUTPUT_TYPE=$OUTPUT_TYPE DATASET=$DATASET
 The following are different evaluation settings: 
 
 OUTPUT_TYPE: eval_code, eval_json
+<br>
 DATATSET: cdr, chemprot, ncbi, medm, pico, chia
 
 ## Finetuned Model
