@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements/requirements.in
 #
-name: stats
+name: beacon
 dependencies:
     accelerate==0.28.0
         # via peft
