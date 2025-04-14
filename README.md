@@ -6,7 +6,7 @@ This code was developed in python 3.9 using the libraries listed in environment.
 
 ```conda env create -f requirements.txt```
 
-Activate the conda environment using the command: ```conda activate fsdar```
+Activate the conda environment using the command: ```conda activate beacon```
 
 In addition to environment setup, you will need to dowbnload datasets from huggingface (open source) [download here](https://huggingface.co/bigbio). 
 
