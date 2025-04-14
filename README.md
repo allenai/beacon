@@ -4,7 +4,7 @@ This repository contains code to run the inference and evaluation of NER as desc
 ## Code Setup
 This code was developed in python 3.9 using the libraries listed in environment.yml. The easiest way to run this code is to set up a conda environment using the .yml file via the following command:
 
-```conda env create -f environment.yml```
+```conda env create -f requirements.txt```
 
 Activate the conda environment using the command: ```conda activate fsdar```
 
